@@ -12,7 +12,7 @@ pygame.init()
 
 screen = pygame.display.set_mode([500,500])
 playerrect = (250, 250)
-playerrect2 = (150, 150)
+
 #variables
 
 playerimg = pygame.image.load('png/kenney_piratepack/PNG/Default size/Ships/ship (1).png')
