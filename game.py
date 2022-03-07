@@ -11,9 +11,14 @@ import pygame
 pygame.init()
 
 screen = pygame.display.set_mode([500,500])
-circle_pos = (250, 250)
-circle_pos2 = (150, 150)
+playerrect = (250, 250)
+playerrect2 = (150, 150)
 #variables
+
+playerimg = pygame.image.load('png/kenney_piratepack/PNG/Default size/Ships/ship (1).png')
+playerimg.convert()
+playerrect = playerimg.get_rect()
+playerrect.center = 250, 250
 #----------------------
 running = True
 #----------------------
@@ -30,13 +35,13 @@ while running:
             running = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                circle_pos = (circle_pos[0]-10,circle_pos[1])
+                playerrect = (playerrect[0]-10,playerrect[1])
             if event.key == pygame.K_RIGHT:
-                circle_pos = (circle_pos[0]+10,circle_pos[1])
+                playerrect = (playerrect[0]+10,playerrect[1])
             if event.key == pygame.K_UP:
-                circle_pos = (circle_pos[0],circle_pos[1]-10)
+                playerrect = (playerrect[0],playerrect[1]-10)
             if event.key == pygame.K_DOWN:
-                circle_pos = (circle_pos[0],circle_pos[1]+10)
+                playerrect = (playerrect[0],playerrect[1]+10)
                 
                 
     #------------------
@@ -47,9 +52,9 @@ while running:
     #Fill background
     #-------------------
     screen.fill((25, 245, 255))
-    pygame.draw.circle(screen, (20, 255, 180), (circle_pos), 75)
+    screen.blit(playerimg, playerrect)
     pygame.display.flip()
-            
+    
 pygame.quit()
 
 
